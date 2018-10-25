@@ -4,6 +4,8 @@ This is a wrapped up version of nginx with openresty that will do extremely basi
 
 I use it to diagnose request traffic for containers, but it should work as a general proxy as well.
 
+The Lua code came from this gist primarily, though I already had the openresty setup previously: https://gist.github.com/morhekil/1ff0e902ed4de2adcb7a
+
 ## Building Docker image
 
 ```
