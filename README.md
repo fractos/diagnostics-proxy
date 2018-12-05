@@ -24,8 +24,7 @@ Replace the following placeholders:
 
 ```
 docker run -t -i --rm \
-  --env PROXY_TARGET_HOST=target \
-  --env PROXY_TARGET_PORT=**CONTAINER_PORT** \
+  --env PROXY_TARGET=http://target:**CONTAINER_PORT** \
   --link **CONTAINER_NAME**:target \
   -p=**PROXY_PORT**:80 \
   fractos/diagnostics-proxy:latest
@@ -35,16 +34,13 @@ docker run -t -i --rm \
 
 Replace the following placeholders:
 
-| Placeholder     | Description                                                         |
-|-----------------|---------------------------------------------------------------------|
-| **TARGET_HOST** | The host that you wish to proxy                                     |
-| **TARGET_PORT** | The port on the target host that you with to proxy                  |
-| **PROXY_PORT**  | The port that you want the proxy to be available as on your machine |
-
+| Placeholder         | Description                                                                                                      |
+|---------------------|------------------------------------------------------------------------------------------------------------------|
+| **TARGET_BASE_URI** | The base URI of the target you want to proxy, e.g. http://google.com, https://example.org, http://127.0.0.1:5000 |
+| **PROXY_PORT**      | The port that you want the proxy to be available as on your machine                                              |
 ```
 docker run -t -i --rm \
-  --env PROXY_TARGET_HOST=**TARGET_HOST** \
-  --env PROXY_TARGET_PORT=**TARGET_PORT** \
+  --env PROXY_TARGET=**TARGET_BASE_URI** \
   -p=**PROXY_PORT**:80 \
   fractos/diagnostics-proxy:latest
 ```

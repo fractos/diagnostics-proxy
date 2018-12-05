@@ -27,8 +27,7 @@ RUN mkdir -p /var/log/nginx && \
     ln -sf /dev/stdout /var/log/nginx/error.log
 
 ENV LISTEN_PORT 80
-ENV PROXY_TARGET_HOST 127.0.0.1
-ENV PROXY_TARGET_PORT 5000
+ENV PROXY_TARGET http://127.0.0.1:5000
 
 COPY run.sh /
 RUN chmod +x /run.sh
